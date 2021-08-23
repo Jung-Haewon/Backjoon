@@ -1,0 +1,6 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2720\2720\bin\Debug\2720.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2720\2720\bin\Debug\2720.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2720\2720\bin\Debug\2720.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2720\2720\obj\Debug\2720.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2720\2720\obj\Debug\2720.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2720\2720\obj\Debug\2720.pdb

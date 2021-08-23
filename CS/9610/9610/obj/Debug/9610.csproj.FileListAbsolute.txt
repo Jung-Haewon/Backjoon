@@ -1,0 +1,7 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\bin\Debug\9610.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\bin\Debug\9610.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\bin\Debug\9610.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\obj\Debug\9610.csprojAssemblyReference.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\obj\Debug\9610.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\obj\Debug\9610.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\9610\9610\obj\Debug\9610.pdb

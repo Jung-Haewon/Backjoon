@@ -5,8 +5,8 @@ int main(void){
 	int number = 0;
 	for(int i = 0; i < 3; i++){
 		cin >> number;
-		long long result = 0;
-		long long tmp;
+		__int128 result = 0;
+		__int128 tmp;
 		for(int i = 0; i < number; i++){
 			cin >> tmp;
 			result += tmp;

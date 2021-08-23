@@ -1,0 +1,6 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\3034\3034\bin\Debug\3034.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\3034\3034\bin\Debug\3034.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\3034\3034\bin\Debug\3034.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\3034\3034\obj\Debug\3034.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\3034\3034\obj\Debug\3034.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\3034\3034\obj\Debug\3034.pdb
