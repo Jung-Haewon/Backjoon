@@ -1,0 +1,7 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\bin\Debug\2863.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\bin\Debug\2863.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\bin\Debug\2863.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\obj\Debug\2863.csprojAssemblyReference.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\obj\Debug\2863.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\obj\Debug\2863.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\2863\2863\obj\Debug\2863.pdb

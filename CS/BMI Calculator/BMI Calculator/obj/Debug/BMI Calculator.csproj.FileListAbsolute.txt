@@ -1,0 +1,7 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\bin\Debug\BMI Calculator.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\bin\Debug\BMI Calculator.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\bin\Debug\BMI Calculator.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\obj\Debug\BMI Calculator.csprojAssemblyReference.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\obj\Debug\BMI Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\obj\Debug\BMI Calculator.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\BMI Calculator\BMI Calculator\obj\Debug\BMI Calculator.pdb

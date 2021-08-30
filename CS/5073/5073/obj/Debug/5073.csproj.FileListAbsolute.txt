@@ -1,0 +1,6 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\5073\5073\bin\Debug\5073.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\5073\5073\bin\Debug\5073.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\5073\5073\bin\Debug\5073.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\5073\5073\obj\Debug\5073.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\5073\5073\obj\Debug\5073.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\5073\5073\obj\Debug\5073.pdb

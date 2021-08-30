@@ -1,0 +1,6 @@
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\10409\10409\bin\Debug\10409.exe.config
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\10409\10409\bin\Debug\10409.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\10409\10409\bin\Debug\10409.pdb
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\10409\10409\obj\Debug\10409.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\10409\10409\obj\Debug\10409.exe
+C:\Users\Haewon\Documents\GitHub\Backjoon\CS\10409\10409\obj\Debug\10409.pdb
