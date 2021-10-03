@@ -1,0 +1,7 @@
+C:\Users\Haewon\source\repos\11050\11050\bin\Debug\11050.exe.config
+C:\Users\Haewon\source\repos\11050\11050\bin\Debug\11050.exe
+C:\Users\Haewon\source\repos\11050\11050\bin\Debug\11050.pdb
+C:\Users\Haewon\source\repos\11050\11050\obj\Debug\11050.csprojAssemblyReference.cache
+C:\Users\Haewon\source\repos\11050\11050\obj\Debug\11050.csproj.CoreCompileInputs.cache
+C:\Users\Haewon\source\repos\11050\11050\obj\Debug\11050.exe
+C:\Users\Haewon\source\repos\11050\11050\obj\Debug\11050.pdb
