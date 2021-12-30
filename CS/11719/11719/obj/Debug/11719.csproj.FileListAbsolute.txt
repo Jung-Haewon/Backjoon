@@ -1,0 +1,7 @@
+C:\Users\speed\source\repos\11719\11719\bin\Debug\11719.exe.config
+C:\Users\speed\source\repos\11719\11719\bin\Debug\11719.exe
+C:\Users\speed\source\repos\11719\11719\bin\Debug\11719.pdb
+C:\Users\speed\source\repos\11719\11719\obj\Debug\11719.csproj.AssemblyReference.cache
+C:\Users\speed\source\repos\11719\11719\obj\Debug\11719.csproj.CoreCompileInputs.cache
+C:\Users\speed\source\repos\11719\11719\obj\Debug\11719.exe
+C:\Users\speed\source\repos\11719\11719\obj\Debug\11719.pdb
