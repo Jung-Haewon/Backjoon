@@ -1,65 +1,172 @@
 #include <iostream>
 #include <vector>
-#include <tuple>
 #include <algorithm>
-
 using namespace std;
-typedef tuple<string, char, tuple<int, float, int>> ids;
 
-vector<ids> Rank;
+vector<string> printList;
 
-bool cmpB(ids a, ids b) {
-    return get<0>(get<2>(a)) > get<0>(get<2>(b));
-}
+class Node {
+public:
+    string name;
+    Node* left;
+    Node* right;
 
-bool cmpD(ids a, ids b) {
-    if (get<0>(get<2>(a)) == get<0>(get<2>(b)))
-        return get<2>(get<2>(a)) > get<2>(get<2>(b));
-}
-
-bool cmpS(ids a, ids b) {
-    if (get<0>(get<2>(a)) == get<0>(get<2>(b)))
-        if (get<2>(get<2>(a)) == get<2>(get<2>(b)))
-            return get<1>(get<2>(a)) < get<1>(get<2>(b));
-}
-
-bool cmpG(ids a, ids b) {
-    return get<1>(a) == get<1>(b);
-}
-
-void getMusic() {
-    char G; string T;
-    int B, D; float S;
-    cin >> T >> G >> B >> S >> D;
-    Rank.push_back(make_tuple(T, G, make_tuple(B, S, D)));
-}
-
-int main() {
-    int N, M;
-    cin >> N >> M;
-    for (int i = 0; i < N; i++) {
-        getMusic();
+    Node(string _name){
+        name = _name;
+        left = NULL;    
+        right = NULL;
     }
+};
 
-    sort(Rank.begin(), Rank.end(), cmpB);
-    stable_sort(Rank.begin(), Rank.end(), cmpD);
-    stable_sort(Rank.begin(), Rank.end(), cmpS);
+void insertNode(Node** tree, Node* newNode) {
+    if (*tree == NULL)
+        *tree = newNode;
+    else if ((*tree)->name < newNode->name){
+        if ((*tree)->right == NULL){
+            (*tree)->right = newNode;
+            return;
+        }
+        else insertNode(&((*tree)->right), newNode);
+    }
+    else if ((*tree)->name > newNode->name){
+        if ((*tree)->left == NULL){
+            (*tree)->left = newNode;
+            return;
+        }
+        else insertNode(&((*tree)->left), newNode);
+    }
+    else if ((*tree)->name == newNode->name){
+        return;
+    }
+}
 
-    for(int i = 0; i < N-1; i++) {
-        if(cmpG(Rank[i], Rank[i+1])) {
-            for(int j = i; j < N; j++) {
-                if(!cmpG(Rank[i], Rank[j])) {
-                    ids buf = Rank[j];
-                    Rank.erase(Rank.begin()+j);
-                    Rank.insert(Rank.begin()+i+1, buf);
-                    break;
-                }
+Node* searchMaxNode(Node* tree){
+    if (tree == NULL) return NULL;
+
+    if (tree->right == NULL){
+        return tree;
+    }
+    else{
+        return searchMaxNode(tree->right);
+    }
+}
+
+Node* searchMinNode(Node* tree){
+    if (tree == NULL) return NULL;
+
+    if (tree->left == NULL)
+        return tree;
+    else
+        return searchMinNode(tree->left);
+}
+
+Node* deleteNode(Node* tree, Node* parent, string targetName){
+    if (tree == NULL) return NULL;
+
+    Node* removedNode = NULL;
+
+    if (tree->name > targetName)
+        removedNode = deleteNode(tree->left, tree, targetName);
+    else if (tree->name < targetName)
+        removedNode = deleteNode(tree->right, tree, targetName);
+    else if (tree->name == targetName){
+        removedNode = tree;
+        if (tree->left == NULL && tree->right == NULL) {
+                if (parent->left == tree)
+                parent->left = NULL;
+                else if (parent->right == tree)
+                parent->right = NULL;
+        }
+        else if (tree->left == NULL){
+            Node* minNode = searchMinNode(tree->right);
+            tree->name = minNode->name;
+            deleteNode(tree->right, tree, minNode->name);
+        }
+        else if (tree->right == NULL) {
+            Node* temp = tree->left;
+            parent->left = temp;
+        }
+        else if (tree->left != NULL && tree->right != NULL) {
+            Node* minNode = searchMaxNode(tree->left);
+            tree->name = minNode->name;
+            minNode = deleteNode(tree->left, tree, minNode->name);
+        }
+
+    }
+    return removedNode;
+}
+
+// void printTotal(Node* tree) {
+//     if (tree == NULL) return;
+
+//     cout << tree->name << endl;
+//     printTotal(tree->left);
+//     printTotal(tree->right);
+// }
+
+void printLeaf(Node* tree){
+    if (tree == NULL) return;
+
+    if (tree->left == NULL && tree->right == NULL){
+        printList.push_back(tree->name);
+        return;
+    }
+    
+    printLeaf(tree->left);
+    printLeaf(tree->right);
+}
+
+void printDepth(Node* tree, int targetDepth, int depth){
+    if (tree == NULL || targetDepth < depth) return;
+
+    if (targetDepth == depth){
+        printList.push_back(tree->name);
+        return;
+    }
+    else{
+        printDepth(tree->left, targetDepth, depth + 1);
+        printDepth(tree->right, targetDepth, depth + 1);
+    }
+}
+
+int main(){
+    Node* rootNode = new Node("absolute Node");
+    for (int i = 0; i < 100; i++) {
+        string query; cin >> query;
+        if (query == "+"){
+            string newName; cin >> newName;
+            Node* newNode = new Node(newName);
+
+            insertNode(&rootNode->left, newNode);
+        }
+        if (query == "-"){
+            string targetName; cin >> targetName;
+            deleteNode(rootNode->left, rootNode, targetName);
+        }
+        if (query == "leaf"){
+            printList.clear();
+            printLeaf(rootNode->left);
+
+            sort(printList.begin(), printList.end());
+            for (auto it : printList)
+                cout << it << " ";
+            cout << '\n';
+        }
+        if (query == "depth"){
+            printList.clear();
+            int targetDepth; cin >> targetDepth;
+            printDepth(rootNode->left, targetDepth, 1);
+            if (printList.size() == 0){
+                cout << "NO\n";
+            }
+            else{
+                sort(printList.begin(), printList.end());
+                for (auto it : printList)
+                    cout << it << " ";
+                cout << '\n';
             }
         }
+        if (query == "quit")
+            break;
     }
-
-    //for(auto iter = Rank.begin(); iter!= Rank.end(); iter++) {
-    //    cout << get<0>(*iter) << "\t\t" << get<1>(*iter) << "\t" << get<0>(get<2>(*iter)) << "\t" << get<1>(get<2>(*iter)) << "\t" << get<2>(get<2>(*iter)) << endl;
-    //}
-    cout << get<0>(Rank[M-1]);
 }
