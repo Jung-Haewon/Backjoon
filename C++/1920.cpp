@@ -1,90 +1,83 @@
 #include <iostream>
+#include <map>
 #include <algorithm>
 #include <string>
 using namespace std;
 
+void scanData();
+void solveProblem();
+void printAnswer();
 
-void inputFunc();
-void SolutionFunc();
-int rounding(int num);
-int searchFunc(int num);
-
-int A[100000] = {0, };
+int dataArr[100001];
+int targetArr[100001];
+int sortedTargetArr[100001];
+map<int, bool> answerMap;
 int n, m;
-string answer = "";
 
-int main(void)
+int main()
 {
-	inputFunc();
+	scanData();
+	solveProblem();
+	printAnswer();
 
-	SolutionFunc();
-
-	cout << answer;
 	return 0;
 }
 
-void inputFunc()
+void scanData()
 {
 	scanf("%d", &n);
+
 	for(int i = 0; i < n; i++)
-		scanf("%d", &A[i]);
-	sort(A, A + n);
+		scanf("%d", &dataArr[i]);
 
-	cin >> m;
-}
+	scanf("%d", &m);
 
-void SolutionFunc()
-{
 	for(int i = 0; i < m; i++)
 	{
-		int tmp;
-		scanf("%d", &tmp);
-
-		answer += to_string(searchFunc(tmp)) + "\n";
+		scanf("%d", &targetArr[i]);
+		sortedTargetArr[i] = targetArr[i];
 	}
+
+	sort(dataArr, dataArr + n);
+	sort(sortedTargetArr, sortedTargetArr + m);
 }
 
-int searchFunc(int num)
+void solveProblem()
 {
-	int pos = 0;
-	int len = rounding(n);
+	int dataIdx = 0;
+	int targetIdx = 0;
 
-	while(true)
+	while((targetIdx < m) && (dataIdx < n))
 	{
-		if(len > 1)
+		//찾고자 하는 수가 존재하는 경우
+		if(sortedTargetArr[targetIdx] == dataArr[dataIdx])
 		{
-			if(num < A[pos + len]){
-				len = rounding(len);
-			}
-			else if(num == A[pos + len])
-				return 1;
-			else
-			{
-				pos += len;
-				len = rounding(len);
-				if(pos + len >= n)
-					len--;
-			}
+			answerMap.insert({sortedTargetArr[targetIdx], true});
+			targetIdx++;
 		}
-		else{
-			if(A[pos] == num)
-				return 1;
-			else if(A[pos + 1] == num)
-				return 1;
-			else if(A[pos + 2] == num)
-				return 1;
-			else if(A[pos + 3] == num)
-				return 1;
-			else
-				return 0;
+		//찾고자 하는 수가 존재하지 않는 경우
+		else if((sortedTargetArr[targetIdx] < dataArr[dataIdx]) || dataIdx >= n)
+		{
+			answerMap.insert({sortedTargetArr[targetIdx], false});
+			targetIdx++;
 		}
+		//수 찾아가는 과정
+		else
+			dataIdx++;
 	}
 }
 
-int rounding(int num)
+void printAnswer()
 {
-	if(num % 2 == 0)
-		return num / 2;
-	else
-		return (num / 2) + 1;
+	string answer = "";
+
+	for(int i = 0; i < m; i++)
+	{
+		if(answerMap.find(targetArr[i])->second == true)
+			answer += "1\n";
+		else
+			answer += "0\n";
+	}
+
+	cout << answer;
 }
