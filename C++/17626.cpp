@@ -1,11 +1,14 @@
 #include <iostream>
 using namespace std;
 
-int arr[50001];
+short arr[50001];
 
 int main()
 {
-	for(int i = 1; i <= 50000; i++)
+	int n;
+	scanf("%d", &n);
+
+	for(int i = 1; i <= n; i++)
 		arr[i] = 4;
 
 	for(int i = 1; i <= 223; i++)
@@ -15,7 +18,7 @@ int main()
 	{
 		for(int j = i; j <= 223; j++)
 		{
-			if(i*i + j*j > 50000)
+			if(i*i + j*j > n)
 				break;
 
 			if(arr[i*i + j*j] == 4)
@@ -29,7 +32,7 @@ int main()
 		{
 			for(int k = j; k <= 223; k++)
 			{
-				if(i*i + j*j + k*k > 50000)
+				if(i*i + j*j + k*k > n)
 					break;
 
 				if(arr[i*i + j*j + k*k] == 4)
@@ -38,9 +41,7 @@ int main()
 		}
 	}
 
-	int n;
-	cin >> n;
-	cout << arr[n] << endl;
+	printf("%d\n", arr[n]);
 
 	return 0;
 }
