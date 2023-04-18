@@ -1,11 +1,15 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 void scanData();
 void solveProblem();
+void dfs(int cur);
 void printAnswer();
 
-int arr[100000][3];
+vector<vector<int>> graph;
+int parent[100001];
 int n;
 
 int main()
@@ -19,34 +23,42 @@ int main()
 
 void scanData()
 {
-	cin >> n;
+	graph.assign(100001, vector<int> {});
 
+	scanf("%d", &n);
+
+	int x, y;
 	for(int i = 0; i < n - 1; i++)
 	{
-		int tmp1, tmp2;
-		cin >> tmp1 >> tmp2;
-
-		for(int i = 0; i < 3; i++)
-			if(arr[tmp1][i] == 0)
-				arr[tmp1][i] = tmp2;
-
-		for(int i = 0; i < 3; i++)
-			if(arr[tmp2][i] == 0)
-				arr[tmp2][i] = tmp1;
+		scanf("%d %d", &x, &y);
+		graph[x].push_back(y);
+		graph[y].push_back(x);
 	}
 }
 
 void solveProblem()
 {
-	arr[arr[1][0]
+	dfs(1);
+}
 
-	for(int i = 2; i < n; i++)
+void dfs(int cur)
+{
+	for(auto iter = graph[cur].begin(); iter != graph[cur].end(); iter++)
 	{
+		if(parent[*iter] != 0)
+			continue;
 
+		parent[*iter] = cur;
+		dfs(*iter);
 	}
 }
 
 void printAnswer()
 {
+	string answer = "";
 
+	for(int i = 2; i <= n; i++)
+		answer += to_string(parent[i]) + "\n";
+
+	cout << answer;
 }

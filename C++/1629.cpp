@@ -1,14 +1,53 @@
 #include <iostream>
+#include <vector>
+#include <set>
 using namespace std;
 
-int main(void) {
-		long long a, b, c;
-		cin >> a >> b >> c;
+void scanData();
+void solveProblem();
+void dP();
+void printAnswer();
 
-		while(b--) {
-			a *= a;
-			a = a % c;
-		}
+vector<long long> modResult;
+set<long long> visited;
+long long a, b, c;
 
-	cout << a << endl;
+int main()
+{
+	scanData();
+	solveProblem();
+	printAnswer();
+
+	return 0;
+}
+
+void scanData()
+{
+	cin >> a >> b >> c;
+}
+
+void solveProblem()
+{
+	dP();
+}
+
+void dP()
+{
+	long long cur = a % c;
+
+	while(true)
+	{
+		modResult.push_back(cur);
+		visited.insert(cur);
+
+		cur = (cur * a) % c;
+
+		if(visited.find(cur) != visited.end())
+			break;
+	}
+}
+
+void printAnswer()
+{
+	cout << modResult[(b % modResult.size()) - 1] << endl;
 }
