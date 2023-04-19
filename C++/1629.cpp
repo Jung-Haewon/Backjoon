@@ -1,16 +1,13 @@
 #include <iostream>
-#include <vector>
-#include <set>
 using namespace std;
 
 void scanData();
 void solveProblem();
-void dP();
+long long powerAndMod(long long x, long long y, long long z);
 void printAnswer();
 
-vector<long long> modResult;
-set<long long> visited;
 long long a, b, c;
+long long answer;
 
 int main()
 {
@@ -28,26 +25,25 @@ void scanData()
 
 void solveProblem()
 {
-	dP();
+	answer = powerAndMod(a, b, c);
 }
 
-void dP()
+long long powerAndMod(long long x, long long y, long long z)
 {
-	long long cur = a % c;
+	if(y == 1)
+		return x % z;
 
-	while(true)
-	{
-		modResult.push_back(cur);
-		visited.insert(cur);
+	long long half = powerAndMod(x, y >> 1, z);
+	long long result = (half * half) % z;
 
-		cur = (cur * a) % c;
+	if(y % 2 == 1)
+		result = (result * x) % z;
 
-		if(visited.find(cur) != visited.end())
-			break;
-	}
+	return result;
 }
+
 
 void printAnswer()
 {
-	cout << modResult[(b % modResult.size()) - 1] << endl;
+	cout << answer << endl;
 }
