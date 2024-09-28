@@ -1,5 +1,6 @@
+n = int(input())
 a=[]
-exec("a.append(input().split())\n"*int(input()))
+exec("a.append(list(map(int,input().split())))\n"*n)
 for i in a:
     c=1
     for j in a:

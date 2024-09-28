@@ -1,28 +1,14 @@
-#include <stdio.h>
+#include <iostream>
+#include <vector>
+using namespace std;
 
-int arr[10005];
-int i;
 
-void post(int start, int end){
-    if(start>=end) return;
-    
-    for(i=start+1;i<end;i++)
-        if(arr[start]<arr[i]) break;
-    
-    post(start+1,i);
-    post(i,end);
-    printf("%d\n",arr[start]);
-    
-    return;
-}
+int main()
+{
+    vector<vector<int>> vec(300000);
+    for(int i = 0; i < 300000; i++)
+        vec[i].push_back(1);
 
-int main(){
-    int n = 0,x;
-    
-    while(scanf("%d",&x)!=EOF)
-        arr[n++] = x;
-    
-    post(0,n);
-    
-    return 0;
+    cout << vec.size() << endl;
+    cout << vec.capacity() << endl;
 }

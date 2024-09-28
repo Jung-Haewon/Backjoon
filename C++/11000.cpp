@@ -1,85 +1,48 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <queue>
 using namespace std;
 
 void scanData();
-void countRoom();
-void printAnswer();
-//void showLectures();
-bool compare(pair<int, int> a, pair<int, int> b);
+void solveProblem();
 
-vector<pair<int, int>> lectures;
-int room = 0;
+vector<pair<int, int>> arr;
+int n;
 
-int main(void)
+
+int main()
 {
-	scanData();
-	countRoom();
-	printAnswer();
+    scanData();
+    solveProblem();
 
-	return 0;
+    return 0;
 }
 
 void scanData()
 {
-	int n, sTmp, tTmp;
 	scanf("%d", &n);
 
+	int s, t;
 	for(int i = 0; i < n; i++)
 	{
-		scanf("%d %d", &sTmp, &tTmp);
-		lectures.push_back(make_pair(sTmp, tTmp));
+		scanf("%d %d", &s, &t);
+		arr.push_back(pair<int, int> {s, t});
 	}
-
-	sort(lectures.begin(), lectures.end(), compare);
+	sort(arr.begin(), arr.end());
 }
 
-void countRoom()
+void solveProblem()
 {
-	vector<pair<int, int>>::iterator iter;
+	priority_queue<int, vector<int>, greater<int>> room;
+	room.push(arr[0].second);
 
-	while(true)
+	for(int i = 1; i < n; i++)
 	{
-		//showLectures();
-		room++;
-		int cur = 0;
-		for(iter = lectures.begin(); iter != lectures.end(); iter++)
-		{
-			if(lectures[lectures.size()-1].first < cur)
-				break;
+		if(arr[i].first >= room.top())
+			room.pop();
 
-			if((*iter).first < cur)
-				continue;
-
-			cur = (*iter).second;
-			lectures.erase(iter);
-			iter--;
-		}
-
-		if(lectures.size() == 0)
-			break;
+		room.push(arr[i].second);
 	}
+
+	cout << room.size() << endl;
 }
-
-
-void printAnswer()
-{
-	cout << room << endl;
-}
-
-bool compare(pair<int, int> a, pair<int, int> b)
-{
-	return a.second < b.second;
-}
-
-/*
-void showLectures()
-{
-	vector<pair<int, int>>::iterator iter;
-
-	for(iter = lectures.begin(); iter != lectures.end(); iter++)
-		cout << (*iter).first << " " << (*iter).second << endl;
-	cout << endl << endl;
-}
-*/
