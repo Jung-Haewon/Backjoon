@@ -13,7 +13,7 @@ int bus[1001][1001];
 int leastLen[1001];
 bool visited[1001];
 int n, m;
-int start, end;
+int start, ended;
 
 set<pair<int, int>> canVisit;
 
@@ -51,7 +51,7 @@ void scanData()
 		bus[from][to] = pay;
 	}
 
-	scanf("%d %d", &start, &end);
+	scanf("%d %d", &start, &ended);
 }
 
 void solveProblem()

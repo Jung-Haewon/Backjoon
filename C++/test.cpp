@@ -1,14 +1,24 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
 
 int main()
 {
-    vector<vector<int>> vec(300000);
-    for(int i = 0; i < 300000; i++)
-        vec[i].push_back(1);
+    string tmp;
+    int best = 0;
+    int tmpSum = 0;
 
-    cout << vec.size() << endl;
-    cout << vec.capacity() << endl;
+
+    cin >> tmp;
+    cout << tmp.substr(0, 6) << endl;
+
+
 }
